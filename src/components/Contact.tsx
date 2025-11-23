@@ -1,8 +1,25 @@
 import { Mail, MapPin, Phone } from 'lucide-react';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { useLanguage } from '../context/LanguageContext';
+
+type FormData = {
+  name: string;
+  email: string;
+  message: string;
+};
 
 export default function Contact() {
   const { t } = useLanguage();
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // Logic to send email will go here
+    console.log(data);
+    alert('Email logic implementation point');
+  };
 
   return (
     <section id="contact" className="py-20 px-6 bg-gray-50 dark:bg-gray-800">
@@ -61,7 +78,7 @@ export default function Contact() {
             </div>
           </div>
           <div>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
@@ -72,8 +89,10 @@ export default function Contact() {
                 <input
                   type="text"
                   id="name"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:border-transparent transition-colors"
+                  {...register('name', { required: true })}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:border-transparent transition-colors`}
                 />
+                {errors.name && <span className="text-red-500 text-sm mt-1">{t('contact.validation.required')}</span>}
               </div>
               <div>
                 <label
@@ -85,8 +104,11 @@ export default function Contact() {
                 <input
                   type="email"
                   id="email"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:border-transparent transition-colors"
+                  {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:border-transparent transition-colors`}
                 />
+                {errors.email?.type === 'required' && <span className="text-red-500 text-sm mt-1">{t('contact.validation.required')}</span>}
+                {errors.email?.type === 'pattern' && <span className="text-red-500 text-sm mt-1">{t('contact.validation.email')}</span>}
               </div>
               <div>
                 <label
@@ -98,8 +120,10 @@ export default function Contact() {
                 <textarea
                   id="message"
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:border-transparent transition-colors resize-none"
+                  {...register('message', { required: true })}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:border-transparent transition-colors resize-none`}
                 />
+                {errors.message && <span className="text-red-500 text-sm mt-1">{t('contact.validation.required')}</span>}
               </div>
               <button
                 type="submit"

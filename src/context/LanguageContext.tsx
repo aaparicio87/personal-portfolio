@@ -130,7 +130,11 @@ const translations = {
             location: 'Ubicación',
             name: 'Nombre',
             message: 'Mensaje',
-            send: 'Enviar Mensaje'
+            send: 'Enviar Mensaje',
+            validation: {
+                required: 'Este campo es obligatorio',
+                email: 'Por favor ingresa un email válido'
+            }
         }
     },
     en: {
@@ -211,7 +215,11 @@ const translations = {
             location: 'Location',
             name: 'Name',
             message: 'Message',
-            send: 'Send Message'
+            send: 'Send Message',
+            validation: {
+                required: 'This field is required',
+                email: 'Please enter a valid email'
+            }
         }
     }
 };

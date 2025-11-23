@@ -24,6 +24,12 @@ export default function Navigation() {
             const sections = navLinks.map(link => link.href.substring(1));
             const scrollPosition = window.scrollY + 100;
 
+            // Check if we're at the bottom of the page
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                setActiveSection(`#${sections[sections.length - 1]}`);
+                return;
+            }
+
             for (const section of sections) {
                 const element = document.getElementById(section);
                 if (element) {
@@ -95,8 +101,8 @@ export default function Navigation() {
                                         setIsLanguageMenuOpen(false);
                                     }}
                                     className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center justify-between ${language === 'es'
-                                            ? 'text-gray-900 dark:text-white font-bold bg-gray-50 dark:bg-gray-800/50'
-                                            : 'text-gray-600 dark:text-gray-400'
+                                        ? 'text-gray-900 dark:text-white font-bold bg-gray-50 dark:bg-gray-800/50'
+                                        : 'text-gray-600 dark:text-gray-400'
                                         }`}
                                 >
                                     <span>{language === 'es' ? 'Español' : 'Spanish'}</span>
@@ -108,8 +114,8 @@ export default function Navigation() {
                                         setIsLanguageMenuOpen(false);
                                     }}
                                     className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center justify-between ${language === 'en'
-                                            ? 'text-gray-900 dark:text-white font-bold bg-gray-50 dark:bg-gray-800/50'
-                                            : 'text-gray-600 dark:text-gray-400'
+                                        ? 'text-gray-900 dark:text-white font-bold bg-gray-50 dark:bg-gray-800/50'
+                                        : 'text-gray-600 dark:text-gray-400'
                                         }`}
                                 >
                                     <span>{language === 'es' ? 'Inglés' : 'English'}</span>
