@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import Logo from './Logo';
 
 interface NavLink {
     href: string;
@@ -48,20 +49,16 @@ export default function Navigation() {
     return (
         <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-800">
             <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-                {/* Logo with profile photo */}
+                {/* Logo */}
                 <a href="#home" className="flex items-center gap-3 group">
-                    <img
-                        src="/profile.png"
-                        alt="Alejandro Aparicio"
-                        className="w-10 h-10 rounded-full object-cover border-2 border-gray-200 dark:border-gray-700 group-hover:border-gray-900 dark:group-hover:border-white transition-colors"
-                    />
+                    <Logo />
                     <span className="text-xl font-bold text-gray-900 dark:text-white">
-                        Alejandro
+                        Alejandro Aparicio
                     </span>
                 </a>
 
                 {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden lg:flex items-center gap-8">
                     {navLinks.map(link => (
                         <a
                             key={link.href}
@@ -92,7 +89,7 @@ export default function Navigation() {
                 </div>
 
                 {/* Mobile Navigation */}
-                <div className="md:hidden flex items-center gap-4">
+                <div className="lg:hidden flex items-center gap-4">
                     <button
                         onClick={toggleTheme}
                         className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -120,7 +117,7 @@ export default function Navigation() {
 
             {/* Mobile Menu */}
             {mobileMenuOpen && (
-                <div className="md:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+                <div className="lg:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
                     <div className="px-6 py-4 flex flex-col gap-4">
                         {navLinks.map(link => (
                             <a

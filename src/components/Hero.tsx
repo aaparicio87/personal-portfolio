@@ -2,41 +2,60 @@ import { Linkedin, Mail } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-6 py-20">
-      <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-2">
-          Alejandro Aparicio Guerra
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-          Full-Stack JavaScript Developer | React Native & React.js Specialist
-        </p>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-12">
-          Especializado en desarrollar aplicaciones web y móviles robustas con expertise en JavaScript, TypeScript y Python
-        </p>
-        <div className="flex items-center justify-center gap-6 mb-12">
-          <a
-            href="https://linkedin.com/in/alejandro-aparicio-guerra"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            aria-label="LinkedIn"
-          >
-            <Linkedin className="w-6 h-6 text-gray-900 dark:text-white" />
-          </a>
-          <a
-            href="mailto:rlaparicio87@gmail.com"
-            className="p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            aria-label="Email"
-          >
-            <Mail className="w-6 h-6 text-gray-900 dark:text-white" />
-          </a>
+    <section id="home" className="min-h-screen flex items-center px-6 py-20">
+      <div className="max-w-6xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left side - Text content */}
+          <div>
+            {/* Main title */}
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+              Hey, I'm Alejandro! 👋
+            </h1>
+
+            {/* Description */}
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+              Software Engineer especializado en desarrollo Full-Stack con JavaScript, TypeScript y Python.
+              Enfocado en crear aplicaciones web y móviles robustas con React Native y React.js.
+            </p>
+
+            {/* Social links */}
+            <div className="flex items-center gap-4">
+              <a
+                href="https://linkedin.com/in/alejandro-aparicio-guerra"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-6 h-6 text-gray-900 dark:text-white" />
+              </a>
+              <a
+                href="mailto:rlaparicio87@gmail.com"
+                className="p-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                aria-label="Email"
+              >
+                <Mail className="w-6 h-6 text-gray-900 dark:text-white" />
+              </a>
+            </div>
+          </div>
+
+          {/* Right side - Profile image */}
+          <div className="hidden lg:flex justify-center items-center">
+            <div className="relative">
+              {/* Decorative background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-3xl transform rotate-3"></div>
+
+              {/* Profile image container */}
+              <div className="relative bg-gray-50 dark:bg-gray-900 rounded-3xl p-8 border border-gray-200 dark:border-gray-700">
+                <img
+                  src="/profile.png"
+                  alt="Alejandro Aparicio"
+                  className="w-72 h-72 rounded-full object-cover border-4 border-gray-900 dark:border-white shadow-xl"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        <a
-          href="#experience"
-          className="inline-block px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors font-medium"
-        >
-          Ver experiencia
-        </a>
       </div>
     </section>
   );
