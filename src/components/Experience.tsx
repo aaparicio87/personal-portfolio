@@ -1,6 +1,14 @@
+import { memo } from 'react';
 import { Briefcase } from 'lucide-react';
 
-const experiences = [
+interface Experience {
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+}
+
+const experiences: Experience[] = [
   {
     title: 'Mobile Developer',
     company: 'Agentic Dream',
@@ -45,7 +53,31 @@ const experiences = [
   },
 ];
 
-export default function Experience() {
+const ExperienceItem = memo(({ experience }: { experience: Experience }) => (
+  <div className="border-l-2 border-gray-300 dark:border-gray-600 pl-6 pb-8 relative">
+    <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-900 dark:bg-white" />
+    <div className="flex items-start gap-4">
+      <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+        <Briefcase className="w-6 h-6 text-gray-900 dark:text-white" />
+      </div>
+      <div className="flex-1">
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+          {experience.title}
+        </h3>
+        <p className="text-gray-600 dark:text-gray-400 mb-2">
+          {experience.company} • {experience.period}
+        </p>
+        <p className="text-gray-600 dark:text-gray-300">
+          {experience.description}
+        </p>
+      </div>
+    </div>
+  </div>
+));
+
+ExperienceItem.displayName = 'ExperienceItem';
+
+function Experience() {
   return (
     <section id="experience" className="py-20 px-6">
       <div className="max-w-4xl mx-auto">
@@ -54,31 +86,12 @@ export default function Experience() {
         </h2>
         <div className="space-y-8">
           {experiences.map((exp, index) => (
-            <div
-              key={index}
-              className="border-l-2 border-gray-300 dark:border-gray-600 pl-6 pb-8 relative"
-            >
-              <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-900 dark:bg-white" />
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
-                  <Briefcase className="w-6 h-6 text-gray-900 dark:text-white" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
-                    {exp.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-2">
-                    {exp.company} • {exp.period}
-                  </p>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    {exp.description}
-                  </p>
-                </div>
-              </div>
-            </div>
+            <ExperienceItem key={index} experience={exp} />
           ))}
         </div>
       </div>
     </section>
   );
 }
+
+export default memo(Experience);

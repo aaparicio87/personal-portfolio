@@ -1,6 +1,17 @@
+import { memo } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
+import Card from './ui/Card';
+import Badge from './ui/Badge';
 
-const projects = [
+interface Project {
+  title: string;
+  description: string;
+  technologies: string[];
+  github: string;
+  live: string;
+}
+
+const projects: Project[] = [
   {
     title: 'MobilePro Migration',
     description: 'Migración completa de aplicación móvil a Expo y TypeScript, mejorando rendimiento y mantenibilidad. Implementación de gestión de estado avanzada con Redux Toolkit.',
@@ -45,7 +56,45 @@ const projects = [
   },
 ];
 
-export default function Projects() {
+const ProjectCard = memo(({ project }: { project: Project }) => (
+  <Card hover>
+    <div className="p-6">
+      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+        {project.title}
+      </h3>
+      <p className="text-gray-600 dark:text-gray-300 mb-4">
+        {project.description}
+      </p>
+      <div className="flex flex-wrap gap-2 mb-6">
+        {project.technologies.map((tech, index) => (
+          <Badge key={index}>
+            {tech}
+          </Badge>
+        ))}
+      </div>
+      <div className="flex gap-4">
+        <a
+          href={project.github}
+          className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+        >
+          <Github className="w-5 h-5" />
+          <span>Código</span>
+        </a>
+        <a
+          href={project.live}
+          className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+        >
+          <ExternalLink className="w-5 h-5" />
+          <span>Demo</span>
+        </a>
+      </div>
+    </div>
+  </Card>
+));
+
+ProjectCard.displayName = 'ProjectCard';
+
+function Projects() {
   return (
     <section id="projects" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
@@ -54,48 +103,12 @@ export default function Projects() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow"
-            >
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-4">
-                  <a
-                    href={project.github}
-                    className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    <Github className="w-5 h-5" />
-                    <span>Código</span>
-                  </a>
-                  <a
-                    href={project.live}
-                    className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                    <span>Demo</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+            <ProjectCard key={index} project={project} />
           ))}
         </div>
       </div>
     </section>
   );
 }
+
+export default memo(Projects);
