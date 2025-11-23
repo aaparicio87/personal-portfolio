@@ -1,6 +1,9 @@
 import { Linkedin, Mail } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section id="home" className="min-h-screen flex items-center px-6 py-20">
       <div className="max-w-6xl mx-auto w-full">
@@ -9,13 +12,12 @@ export default function Hero() {
           <div>
             {/* Main title */}
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-              Hey, I'm Alejandro! 👋
+              {t('hero.greeting')}
             </h1>
 
             {/* Description */}
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              Software Engineer especializado en desarrollo Full-Stack con JavaScript, TypeScript y Python.
-              Enfocado en crear aplicaciones web y móviles robustas con React Native y React.js.
+              {t('hero.description')}
             </p>
 
             {/* Social links */}

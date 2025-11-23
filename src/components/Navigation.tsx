@@ -1,25 +1,23 @@
 import { useState, useEffect } from 'react';
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import { Moon, Sun, Menu, X, Languages } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import Logo from './Logo';
-
-interface NavLink {
-    href: string;
-    label: string;
-}
-
-const navLinks: NavLink[] = [
-    { href: '#about', label: 'Sobre mí' },
-    { href: '#experience', label: 'Experiencia' },
-    { href: '#skills', label: 'Habilidades' },
-    { href: '#projects', label: 'Proyectos' },
-    { href: '#contact', label: 'Contacto' },
-];
 
 export default function Navigation() {
     const { theme, toggleTheme } = useTheme();
+    const { language, toggleLanguage, t } = useLanguage();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('');
+
+    const navLinks = [
+        { href: '#about', label: t('nav.about') },
+        { href: '#experience', label: t('nav.experience') },
+        { href: '#skills', label: t('nav.skills') },
+        { href: '#projects', label: t('nav.projects') },
+        { href: '#contact', label: t('nav.contact') },
+    ];
 
     useEffect(() => {
         const handleScroll = () => {
@@ -70,11 +68,58 @@ export default function Navigation() {
                             </span>
                             {/* Active indicator */}
                             <span
-                                className={`absolute -bottom-2 left-0 right-0 h-0.5 bg-gray-900 dark:bg-white transition-opacity ${activeSection === link.href ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
+                                className={`absolute -bottom-2 left-0 right-0 h-0.5 bg-gray-900 dark:bg-white transition-all duration-500 ease-in-out ${activeSection === link.href ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
                                     }`}
                             />
                         </a>
                     ))}
+
+                    {/* Language Dropdown */}
+                    <div className="relative">
+                        <button
+                            onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
+                            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-2"
+                            aria-label="Select language"
+                        >
+                            <Languages className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                            <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                                {language.toUpperCase()}
+                            </span>
+                        </button>
+
+                        {isLanguageMenuOpen && (
+                            <div className="absolute top-full right-0 mt-2 w-32 bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-800 py-2 overflow-hidden">
+                                <button
+                                    onClick={() => {
+                                        if (language !== 'es') toggleLanguage();
+                                        setIsLanguageMenuOpen(false);
+                                    }}
+                                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center justify-between ${language === 'es'
+                                            ? 'text-gray-900 dark:text-white font-bold bg-gray-50 dark:bg-gray-800/50'
+                                            : 'text-gray-600 dark:text-gray-400'
+                                        }`}
+                                >
+                                    <span>{language === 'es' ? 'Español' : 'Spanish'}</span>
+                                    {language === 'es' && <span className="text-xs">✓</span>}
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        if (language !== 'en') toggleLanguage();
+                                        setIsLanguageMenuOpen(false);
+                                    }}
+                                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center justify-between ${language === 'en'
+                                            ? 'text-gray-900 dark:text-white font-bold bg-gray-50 dark:bg-gray-800/50'
+                                            : 'text-gray-600 dark:text-gray-400'
+                                        }`}
+                                >
+                                    <span>{language === 'es' ? 'Inglés' : 'English'}</span>
+                                    {language === 'en' && <span className="text-xs">✓</span>}
+                                </button>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Theme Toggle */}
                     <button
                         onClick={toggleTheme}
                         className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -90,6 +135,16 @@ export default function Navigation() {
 
                 {/* Mobile Navigation */}
                 <div className="lg:hidden flex items-center gap-4">
+                    <button
+                        onClick={toggleLanguage}
+                        className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-2"
+                        aria-label="Toggle language"
+                    >
+                        <Languages className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                        <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                            {language.toUpperCase()}
+                        </span>
+                    </button>
                     <button
                         onClick={toggleTheme}
                         className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"

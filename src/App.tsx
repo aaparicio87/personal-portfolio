@@ -1,4 +1,5 @@
 import { ThemeProvider } from './context/ThemeContext';
+import { LanguageProvider } from './context/LanguageContext';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,24 +11,24 @@ import Contact from './components/Contact';
 function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-        <Navigation />
+      <LanguageProvider>
+        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
+          <Navigation />
 
-        <main className="pt-16">
-          <Hero />
-          <About />
-          <Experience />
-          <Skills />
-          <Projects />
-          <Contact />
-        </main>
+          <main>
+            <Hero />
+            <About />
+            <Experience />
+            <Skills />
+            <Projects />
+            <Contact />
+          </main>
 
-        <footer className="bg-gray-50 dark:bg-gray-800 py-8 border-t border-gray-200 dark:border-gray-700">
-          <div className="max-w-6xl mx-auto px-6 text-center text-gray-600 dark:text-gray-400">
-            <p>&copy; {new Date().getFullYear()} Full-Stack JavaScript Developer. Todos los derechos reservados.</p>
-          </div>
-        </footer>
-      </div>
+          <footer className="bg-gray-50 dark:bg-gray-800 py-8 text-center text-gray-600 dark:text-gray-400">
+            <p>&copy; 2024 Alejandro Aparicio. All rights reserved.</p>
+          </footer>
+        </div>
+      </LanguageProvider>
     </ThemeProvider>
   );
 }
