@@ -1,6 +1,6 @@
+import Landing from "@pages/Landing";
 import { LanguageProvider } from "./context/LanguageContext";
 import { ThemeProvider } from "./context/ThemeContext";
-import Landing from "./pages/Landing";
 
 function App() {
   return (

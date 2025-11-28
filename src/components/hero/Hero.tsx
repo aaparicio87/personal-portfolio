@@ -1,4 +1,4 @@
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "@context/LanguageContext";
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -42,7 +42,6 @@ export default function Hero() {
             </div>
 
             {/* Social links */}
-
           </div>
 
           {/* Right side - Profile image */}

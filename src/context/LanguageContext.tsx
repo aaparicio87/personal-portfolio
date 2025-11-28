@@ -1,5 +1,11 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import { translations, Locale, TranslationPath } from "../data/traslations";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  PropsWithChildren,
+} from "react";
+import { translations, Locale, TranslationPath } from "@data/traslations";
 
 interface LanguageContextType {
   language: Locale;
@@ -11,9 +17,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined,
 );
 
-type Props = {
-  children: React.ReactNode;
-};
+type Props = PropsWithChildren;
 
 const LanguageProvider = ({ children }: Props) => {
   const [language, setLanguage] = useState<Locale>(() => {

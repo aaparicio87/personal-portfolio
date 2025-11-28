@@ -1,5 +1,5 @@
 import { FiGithub, FiInstagram, FiLinkedin, FiTwitter } from "react-icons/fi";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "@context/LanguageContext";
 
 export default function Contact() {
   const { t } = useLanguage();

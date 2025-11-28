@@ -1,10 +1,10 @@
-import { memo } from 'react';
-import { FiExternalLink, FiGithub } from 'react-icons/fi';
-import { useLanguage } from '../context/LanguageContext';
-import { projects, type Project } from '../data/projects';
-import Card from './ui/Card';
-import Badge from './ui/Badge';
-import AppStoreLinks from './AppStoreLinks';
+import { memo } from "react";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { useLanguage } from "@context/LanguageContext";
+import { projects, type Project } from "@data/projects";
+import AppStoreLinks from "@components/appStoreLink/AppStoreLinks";
+import Badge from "../ui/Badge";
+import Card from "../ui/Card";
 
 const ProjectCard = memo(({ project }: { project: Project }) => {
   const { t } = useLanguage();
@@ -28,9 +28,9 @@ const ProjectCard = memo(({ project }: { project: Project }) => {
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={t('projects.viewCode')}
+            aria-label={t("projects.viewCode")}
             className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-            title={t('projects.viewCode')}
+            title={t("projects.viewCode")}
           >
             <FiGithub className="w-5 h-5" />
           </a>
@@ -40,9 +40,9 @@ const ProjectCard = memo(({ project }: { project: Project }) => {
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={t('projects.viewDemo')}
+            aria-label={t("projects.viewDemo")}
             className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-            title={t('projects.viewDemo')}
+            title={t("projects.viewDemo")}
           >
             <FiExternalLink className="w-5 h-5" />
           </a>
@@ -56,7 +56,7 @@ const ProjectCard = memo(({ project }: { project: Project }) => {
   );
 });
 
-ProjectCard.displayName = 'ProjectCard';
+ProjectCard.displayName = "ProjectCard";
 
 function Projects() {
   const { t } = useLanguage();
@@ -65,7 +65,7 @@ function Projects() {
     <section id="projects" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-          {t('projects.title')}
+          {t("projects.title")}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (

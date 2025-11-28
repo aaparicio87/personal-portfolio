@@ -1,8 +1,15 @@
-import { memo } from 'react';
-import { FiCode, FiSmartphone, FiServer, FiDatabase, FiCloud, FiTool } from 'react-icons/fi';
-import { useLanguage } from '../context/LanguageContext';
-import Card from './ui/Card';
-import Badge from './ui/Badge';
+import { memo } from "react";
+import {
+  FiCode,
+  FiSmartphone,
+  FiServer,
+  FiDatabase,
+  FiCloud,
+  FiTool,
+} from "react-icons/fi";
+import { useLanguage } from "@context/LanguageContext";
+import Card from "../ui/Card";
+import Badge from "../ui/Badge";
 
 interface SkillCategory {
   titleKey: string;
@@ -33,41 +40,65 @@ const SkillCategoryCard = memo(({ category }: { category: SkillCategory }) => {
   );
 });
 
-SkillCategoryCard.displayName = 'SkillCategoryCard';
+SkillCategoryCard.displayName = "SkillCategoryCard";
 
 function Skills() {
   const { t } = useLanguage();
 
   const skillCategories: SkillCategory[] = [
     {
-      titleKey: 'skills.mobile',
+      titleKey: "skills.mobile",
       icon: FiSmartphone,
-      skills: ['React Native', 'Expo.js', 'TypeScript', 'Redux Toolkit', 'Native Modules (Swift/Kotlin)'],
+      skills: [
+        "React Native",
+        "Expo.js",
+        "TypeScript",
+        "Redux Toolkit",
+        "Native Modules (Swift/Kotlin)",
+      ],
     },
     {
-      titleKey: 'skills.web',
+      titleKey: "skills.web",
       icon: FiCode,
-      skills: ['React.js', 'JavaScript', 'Material UI', 'HTML/CSS', 'Responsive Design'],
+      skills: [
+        "React.js",
+        "JavaScript",
+        "Material UI",
+        "HTML/CSS",
+        "Responsive Design",
+      ],
     },
     {
-      titleKey: 'skills.backend',
+      titleKey: "skills.backend",
       icon: FiServer,
-      skills: ['Node.js', 'Nest.js', 'FastAPI', 'Python', 'REST APIs'],
+      skills: ["Node.js", "Nest.js", "FastAPI", "Python", "REST APIs"],
     },
     {
-      titleKey: 'skills.databases',
+      titleKey: "skills.databases",
       icon: FiDatabase,
-      skills: ['SQLite', 'TypeORM', 'Firebase Firestore', 'MariaDB', 'PostgreSQL'],
+      skills: [
+        "SQLite",
+        "TypeORM",
+        "Firebase Firestore",
+        "MariaDB",
+        "PostgreSQL",
+      ],
     },
     {
-      titleKey: 'skills.cloud',
+      titleKey: "skills.cloud",
       icon: FiCloud,
-      skills: ['AWS (Lambda, S3, Cognito)', 'Firebase', 'Docker', 'CI/CD', 'Fastlane'],
+      skills: [
+        "AWS (Lambda, S3, Cognito)",
+        "Firebase",
+        "Docker",
+        "CI/CD",
+        "Fastlane",
+      ],
     },
     {
-      titleKey: 'skills.tools',
+      titleKey: "skills.tools",
       icon: FiTool,
-      skills: ['Git', 'Scrum/Agile', 'VS Code', 'Xcode', 'Android Studio'],
+      skills: ["Git", "Scrum/Agile", "VS Code", "Xcode", "Android Studio"],
     },
   ];
 
@@ -75,7 +106,7 @@ function Skills() {
     <section id="skills" className="py-20 px-6 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-          {t('skills.title')}
+          {t("skills.title")}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
