@@ -1,5 +1,5 @@
-import { FiGithub, FiLinkedin, FiInstagram, FiTwitter } from 'react-icons/fi';
-import { useLanguage } from '../context/LanguageContext';
+import { FiGithub, FiInstagram, FiLinkedin, FiTwitter } from "react-icons/fi";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -8,7 +8,7 @@ export default function Contact() {
     <section id="contact" className="py-20 px-6 bg-gray-900 text-white">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight">
-          {t('contact.title')}
+          {t("contact.title")}
         </h2>
 
         <div className="mb-12">
