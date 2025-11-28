@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Moon, Sun, Menu, X, Languages } from 'lucide-react';
+import { FiMoon, FiSun, FiMenu, FiX, FiGlobe } from 'react-icons/fi';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import Logo from './Logo';
@@ -87,7 +87,7 @@ export default function Navigation() {
                             className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-2"
                             aria-label="Select language"
                         >
-                            <Languages className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                            <FiGlobe className="w-5 h-5 text-gray-600 dark:text-gray-300" />
                             <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
                                 {language.toUpperCase()}
                             </span>
@@ -132,9 +132,9 @@ export default function Navigation() {
                         aria-label="Toggle theme"
                     >
                         {theme === 'light' ? (
-                            <Moon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                            <FiMoon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
                         ) : (
-                            <Sun className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                            <FiSun className="w-5 h-5 text-gray-600 dark:text-gray-300" />
                         )}
                     </button>
                 </div>
@@ -146,7 +146,7 @@ export default function Navigation() {
                         className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-2"
                         aria-label="Toggle language"
                     >
-                        <Languages className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                        <FiGlobe className="w-5 h-5 text-gray-600 dark:text-gray-300" />
                         <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
                             {language.toUpperCase()}
                         </span>
@@ -157,9 +157,9 @@ export default function Navigation() {
                         aria-label="Toggle theme"
                     >
                         {theme === 'light' ? (
-                            <Moon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                            <FiMoon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
                         ) : (
-                            <Sun className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                            <FiSun className="w-5 h-5 text-gray-600 dark:text-gray-300" />
                         )}
                     </button>
                     <button
@@ -168,9 +168,9 @@ export default function Navigation() {
                         aria-label="Toggle menu"
                     >
                         {mobileMenuOpen ? (
-                            <X className="w-6 h-6 text-gray-900 dark:text-white" />
+                            <FiX className="w-6 h-6 text-gray-900 dark:text-white" />
                         ) : (
-                            <Menu className="w-6 h-6 text-gray-900 dark:text-white" />
+                            <FiMenu className="w-6 h-6 text-gray-900 dark:text-white" />
                         )}
                     </button>
                 </div>

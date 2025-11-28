@@ -106,10 +106,12 @@ const translations = {
             title: 'Proyectos Destacados',
             viewCode: 'Ver Código',
             viewDemo: 'Ver Demo',
+            appStore: 'App Store',
+            playStore: 'Play Store',
             items: {
                 mobilepro: {
                     title: 'MobilePro',
-                    description: 'Migración completa de aplicación móvil a Expo y TypeScript, mejorando rendimiento y mantenibilidad. Gestión de estado avanzada con Redux Toolkit.'
+                    description: 'Migración completa de aplicación móvil a Expo y TypeScript, mejorando rendimiento y mantenibilidad. Gestión de estado avanzada con Redux Toolkit. (Disponible solo en USA)'
                 },
                 sensordata: {
                     title: 'SensorData',
@@ -118,6 +120,10 @@ const translations = {
                 basspago: {
                     title: 'Basspago',
                     description: 'Plataforma de pagos web y móvil con autenticación 2FA, procesos KYC y generación de facturas PDF.'
+                },
+                portfolio: {
+                    title: 'Portfolio Personal',
+                    description: 'Portfolio web moderno y responsivo con modo oscuro, internacionalización y formulario de contacto validado.'
                 }
             }
         },
@@ -191,10 +197,12 @@ const translations = {
             title: 'Featured Projects',
             viewCode: 'View Code',
             viewDemo: 'View Demo',
+            appStore: 'App Store',
+            playStore: 'Play Store',
             items: {
                 mobilepro: {
                     title: 'MobilePro',
-                    description: 'Complete mobile app migration to Expo and TypeScript, improving performance and maintainability. Advanced state management with Redux Toolkit.'
+                    description: 'Complete mobile app migration to Expo and TypeScript, improving performance and maintainability. Advanced state management with Redux Toolkit. (Available only in USA)'
                 },
                 sensordata: {
                     title: 'SensorData',
@@ -203,6 +211,10 @@ const translations = {
                 basspago: {
                     title: 'Basspago',
                     description: 'Web and mobile payment platform with 2FA authentication, KYC processes, and PDF invoice generation.'
+                },
+                portfolio: {
+                    title: 'Personal Portfolio',
+                    description: 'Modern and responsive web portfolio with dark mode, internationalization, and validated contact form.'
                 }
             }
         },

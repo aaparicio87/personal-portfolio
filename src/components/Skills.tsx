@@ -1,12 +1,12 @@
 import { memo } from 'react';
-import { Code2, Smartphone, Server, Database, Cloud, Wrench } from 'lucide-react';
+import { FiCode, FiSmartphone, FiServer, FiDatabase, FiCloud, FiTool } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
 import Card from './ui/Card';
 import Badge from './ui/Badge';
 
 interface SkillCategory {
   titleKey: string;
-  icon: typeof Code2;
+  icon: typeof FiCode;
   skills: string[];
 }
 
@@ -41,32 +41,32 @@ function Skills() {
   const skillCategories: SkillCategory[] = [
     {
       titleKey: 'skills.mobile',
-      icon: Smartphone,
+      icon: FiSmartphone,
       skills: ['React Native', 'Expo.js', 'TypeScript', 'Redux Toolkit', 'Native Modules (Swift/Kotlin)'],
     },
     {
       titleKey: 'skills.web',
-      icon: Code2,
+      icon: FiCode,
       skills: ['React.js', 'JavaScript', 'Material UI', 'HTML/CSS', 'Responsive Design'],
     },
     {
       titleKey: 'skills.backend',
-      icon: Server,
+      icon: FiServer,
       skills: ['Node.js', 'Nest.js', 'FastAPI', 'Python', 'REST APIs'],
     },
     {
       titleKey: 'skills.databases',
-      icon: Database,
+      icon: FiDatabase,
       skills: ['SQLite', 'TypeORM', 'Firebase Firestore', 'MariaDB', 'PostgreSQL'],
     },
     {
       titleKey: 'skills.cloud',
-      icon: Cloud,
+      icon: FiCloud,
       skills: ['AWS (Lambda, S3, Cognito)', 'Firebase', 'Docker', 'CI/CD', 'Fastlane'],
     },
     {
       titleKey: 'skills.tools',
-      icon: Wrench,
+      icon: FiTool,
       skills: ['Git', 'Scrum/Agile', 'VS Code', 'Xcode', 'Android Studio'],
     },
   ];

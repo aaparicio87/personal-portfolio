@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -40,7 +40,7 @@ export default function Contact() {
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
-                  <Mail className="w-5 h-5 text-gray-900 dark:text-white" />
+                  <FiMail className="w-5 h-5 text-gray-900 dark:text-white" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-600 dark:text-gray-400">{t('contact.email')}</p>
@@ -54,7 +54,7 @@ export default function Contact() {
               </div>
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
-                  <Phone className="w-5 h-5 text-gray-900 dark:text-white" />
+                  <FiPhone className="w-5 h-5 text-gray-900 dark:text-white" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-600 dark:text-gray-400">{t('contact.phone')}</p>
@@ -68,7 +68,7 @@ export default function Contact() {
               </div>
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
-                  <MapPin className="w-5 h-5 text-gray-900 dark:text-white" />
+                  <FiMapPin className="w-5 h-5 text-gray-900 dark:text-white" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-600 dark:text-gray-400">{t('contact.location')}</p>

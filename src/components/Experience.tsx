@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Briefcase } from 'lucide-react';
+import { FiBriefcase } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
 
 interface Experience {
@@ -18,7 +18,7 @@ const ExperienceItem = memo(({ experience }: { experience: Experience }) => {
       <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-900 dark:bg-white" />
       <div className="flex items-start gap-4">
         <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
-          <Briefcase className="w-6 h-6 text-gray-900 dark:text-white" />
+          <FiBriefcase className="w-6 h-6 text-gray-900 dark:text-white" />
         </div>
         <div className="flex-1">
           <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">

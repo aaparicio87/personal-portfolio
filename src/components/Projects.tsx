@@ -1,50 +1,20 @@
 import { memo } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { FiExternalLink, FiGithub } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
+import { projects, type Project } from '../data/projects';
 import Card from './ui/Card';
 import Badge from './ui/Badge';
-
-interface Project {
-  titleKey: string;
-  descriptionKey: string;
-  technologies: string[];
-  github: string;
-  live: string;
-}
-
-const projects: Project[] = [
-  {
-    titleKey: 'projects.items.mobilepro.title',
-    descriptionKey: 'projects.items.mobilepro.description',
-    technologies: ['React Native', 'Expo', 'TypeScript', 'Redux Toolkit', 'Firebase'],
-    github: '#',
-    live: '#',
-  },
-  {
-    titleKey: 'projects.items.sensordata.title',
-    descriptionKey: 'projects.items.sensordata.description',
-    technologies: ['React Native CLI', 'OneSignal', 'Fastlane', 'react-native-maps'],
-    github: '#',
-    live: '#',
-  },
-  {
-    titleKey: 'projects.items.basspago.title',
-    descriptionKey: 'projects.items.basspago.description',
-    technologies: ['React.js', 'React Native', 'Firebase', 'SUMSUB SDK', 'Material UI'],
-    github: '#',
-    live: '#',
-  },
-];
+import AppStoreLinks from './AppStoreLinks';
 
 const ProjectCard = memo(({ project }: { project: Project }) => {
   const { t } = useLanguage();
 
   return (
-    <Card hover className="p-6">
+    <Card hover className="p-6 flex flex-col h-full">
       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
         {t(project.titleKey)}
       </h3>
-      <p className="text-gray-600 dark:text-gray-300 mb-4">
+      <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
         {t(project.descriptionKey)}
       </p>
       <div className="flex flex-wrap gap-2 mb-4">
@@ -52,21 +22,35 @@ const ProjectCard = memo(({ project }: { project: Project }) => {
           <Badge key={index}>{tech}</Badge>
         ))}
       </div>
-      <div className="flex gap-4">
-        <a
-          href={project.github}
-          className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-        >
-          <Github className="w-5 h-5" />
-          <span>{t('projects.viewCode')}</span>
-        </a>
-        <a
-          href={project.live}
-          className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-        >
-          <ExternalLink className="w-5 h-5" />
-          <span>{t('projects.viewDemo')}</span>
-        </a>
+      <div className="flex gap-3 mt-auto justify-end">
+        {project.github && (
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t('projects.viewCode')}
+            className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+            title={t('projects.viewCode')}
+          >
+            <FiGithub className="w-5 h-5" />
+          </a>
+        )}
+        {project.live && (
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t('projects.viewDemo')}
+            className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+            title={t('projects.viewDemo')}
+          >
+            <FiExternalLink className="w-5 h-5" />
+          </a>
+        )}
+        <AppStoreLinks
+          appStoreUrl={project.appStoreUrl}
+          playStoreUrl={project.playStoreUrl}
+        />
       </div>
     </Card>
   );

@@ -1,5 +1,5 @@
-import { Linkedin, Mail } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { FiGithub, FiLinkedin } from "react-icons/fi";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -12,12 +12,12 @@ export default function Hero() {
           <div>
             {/* Main title */}
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-              {t('hero.greeting')}
+              {t("hero.greeting")}
             </h1>
 
             {/* Description */}
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              {t('hero.description')}
+              {t("hero.description")}
             </p>
 
             {/* Social links */}
@@ -29,14 +29,16 @@ export default function Hero() {
                 className="p-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-6 h-6 text-gray-900 dark:text-white" />
+                <FiLinkedin className="w-6 h-6 text-gray-900 dark:text-white" />
               </a>
               <a
-                href="mailto:rlaparicio87@gmail.com"
+                href="https://github.com/aaparicio87"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                aria-label="Email"
+                aria-label="GitHub"
               >
-                <Mail className="w-6 h-6 text-gray-900 dark:text-white" />
+                <FiGithub className="w-6 h-6 text-gray-900 dark:text-white" />
               </a>
             </div>
           </div>
