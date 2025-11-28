@@ -62,7 +62,11 @@ const translations = {
         },
         hero: {
             greeting: 'Hey, I\'m Alejandro! 👋',
-            description: 'Software Engineer especializado en desarrollo Full-Stack con JavaScript, TypeScript y Python. Enfocado en crear aplicaciones web y móviles robustas con React Native y React.js.'
+            description: 'Software Engineer especializado en desarrollo Full-Stack con JavaScript, TypeScript y Python. Enfocado en crear aplicaciones web y móviles robustas con React Native y React.js.',
+            cv: {
+                english: 'CV (Inglés)',
+                spanish: 'CV (Español)'
+            }
         },
         about: {
             title: 'Sobre mí',
@@ -123,24 +127,12 @@ const translations = {
                 },
                 portfolio: {
                     title: 'Portfolio Personal',
-                    description: 'Portfolio web moderno y responsivo con modo oscuro, internacionalización y formulario de contacto validado.'
+                    description: 'Portfolio web moderno y responsivo con modo oscuro e internacionalización.'
                 }
             }
         },
         contact: {
-            title: 'Contacto',
-            subtitle: 'Hablemos',
-            description: 'Estoy disponible para nuevos proyectos y oportunidades. No dudes en contactarme.',
-            email: 'Email',
-            phone: 'Teléfono',
-            location: 'Ubicación',
-            name: 'Nombre',
-            message: 'Mensaje',
-            send: 'Enviar Mensaje',
-            validation: {
-                required: 'Este campo es obligatorio',
-                email: 'Por favor ingresa un email válido'
-            }
+            title: 'Let\'s build something great.'
         }
     },
     en: {
@@ -153,7 +145,11 @@ const translations = {
         },
         hero: {
             greeting: 'Hey, I\'m Alejandro! 👋',
-            description: 'Software Engineer specialized in Full-Stack development with JavaScript, TypeScript, and Python. Focused on creating robust web and mobile applications with React Native and React.js.'
+            description: 'Software Engineer specialized in Full-Stack development with JavaScript, TypeScript, and Python. Focused on creating robust web and mobile applications with React Native and React.js.',
+            cv: {
+                english: 'CV (English)',
+                spanish: 'CV (Spanish)'
+            }
         },
         about: {
             title: 'About Me',
@@ -214,24 +210,12 @@ const translations = {
                 },
                 portfolio: {
                     title: 'Personal Portfolio',
-                    description: 'Modern and responsive web portfolio with dark mode, internationalization, and validated contact form.'
+                    description: 'Modern and responsive web portfolio with dark mode and internationalization.'
                 }
             }
         },
         contact: {
-            title: 'Contact',
-            subtitle: 'Let\'s Talk',
-            description: 'I\'m available for new projects and opportunities. Feel free to reach out.',
-            email: 'Email',
-            phone: 'Phone',
-            location: 'Location',
-            name: 'Name',
-            message: 'Message',
-            send: 'Send Message',
-            validation: {
-                required: 'This field is required',
-                email: 'Please enter a valid email'
-            }
+            title: 'Let\'s build something great.'
         }
     }
 };

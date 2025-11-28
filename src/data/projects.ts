@@ -34,7 +34,7 @@ export const projects: Project[] = [
     {
         titleKey: 'projects.items.portfolio.title',
         descriptionKey: 'projects.items.portfolio.description',
-        technologies: ['React.js', 'TypeScript', 'Vite', 'Tailwind CSS', 'React Hook Form', 'Vercel'],
+        technologies: ['React.js', 'TypeScript', 'Vite', 'Tailwind CSS', 'Vercel'],
         github: 'https://github.com/aaparicio87/personal-portfolio',
     },
 ];

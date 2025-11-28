@@ -1,4 +1,3 @@
-import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Hero() {
@@ -20,27 +19,30 @@ export default function Hero() {
               {t("hero.description")}
             </p>
 
-            {/* Social links */}
-            <div className="flex items-center gap-4">
+            {/* CV Download Buttons */}
+            <div className="flex flex-wrap gap-4 mb-8">
               <a
-                href="https://linkedin.com/in/alejandro-aparicio-guerra"
+                href="/CURRICULUM-VITAE-ENG.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                aria-label="LinkedIn"
+                className="px-6 py-3 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-medium border border-gray-200 dark:border-gray-700 flex items-center gap-2 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-gray-900 dark:hover:border-white transition-all duration-300"
               >
-                <FiLinkedin className="w-6 h-6 text-gray-900 dark:text-white" />
+                <span>📄</span>
+                <span>{t("hero.cv.english")}</span>
               </a>
               <a
-                href="https://github.com/aaparicio87"
+                href="/CURRICULUM-VITAE-ESP.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                aria-label="GitHub"
+                className="px-6 py-3 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-medium border border-gray-200 dark:border-gray-700 flex items-center gap-2 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-gray-900 dark:hover:border-white transition-all duration-300"
               >
-                <FiGithub className="w-6 h-6 text-gray-900 dark:text-white" />
+                <span>📄</span>
+                <span>{t("hero.cv.spanish")}</span>
               </a>
             </div>
+
+            {/* Social links */}
+
           </div>
 
           {/* Right side - Profile image */}
