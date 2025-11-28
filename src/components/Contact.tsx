@@ -5,16 +5,16 @@ export default function Contact() {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="py-20 px-6 bg-gray-900 text-white">
+    <section id="contact" className="py-20 px-6">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight">
+        <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight text-gray-900 dark:text-white">
           {t("contact.title")}
         </h2>
 
         <div className="mb-12">
           <a
             href="mailto:rlaparicio87@gmail.com"
-            className="text-2xl md:text-3xl font-medium hover:underline underline-offset-8 decoration-2 decoration-gray-500 hover:decoration-white transition-all"
+            className="text-2xl md:text-3xl font-medium hover:underline underline-offset-8 decoration-2 decoration-gray-500 dark:text-white hover:dark:decoration-white transition-all"
           >
             rlaparicio87@gmail.com
           </a>
@@ -25,7 +25,7 @@ export default function Contact() {
             href="https://github.com/aaparicio87"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-4 rounded-xl bg-gray-800 hover:bg-gray-700 transition-all hover:-translate-y-1"
+            className="p-4 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all hover:-translate-y-1"
             aria-label="GitHub"
           >
             <FiGithub className="w-6 h-6" />
@@ -34,7 +34,7 @@ export default function Contact() {
             href="https://linkedin.com/in/alejandro-aparicio-guerra"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-4 rounded-xl bg-gray-800 hover:bg-gray-700 transition-all hover:-translate-y-1"
+            className="p-4 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all hover:-translate-y-1"
             aria-label="LinkedIn"
           >
             <FiLinkedin className="w-6 h-6" />
@@ -43,7 +43,7 @@ export default function Contact() {
             href="https://www.instagram.com/dlaparicio87/"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-4 rounded-xl bg-gray-800 hover:bg-gray-700 transition-all hover:-translate-y-1"
+            className="p-4 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all hover:-translate-y-1"
             aria-label="Instagram"
           >
             <FiInstagram className="w-6 h-6" />
@@ -52,7 +52,7 @@ export default function Contact() {
             href="https://twitter.com/alejo_guerr25"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-4 rounded-xl bg-gray-800 hover:bg-gray-700 transition-all hover:-translate-y-1"
+            className="p-4 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all hover:-translate-y-1"
             aria-label="Twitter"
           >
             <FiTwitter className="w-6 h-6" />
